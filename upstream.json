@@ -1,0 +1,6 @@
+{
+  "canary": {"repository": "https://github.com/opentibiabr/canary", "ref": "v3.6.1", "commit": "fe0f932c380583871ce640a32628d397d3fa02ff", "license": "GPL-2.0"},
+  "otclient": {"repository": "https://github.com/opentibiabr/otclient", "ref": "4.1", "commit": "dd5641492a71e966b96b8a91398b44bb3df67d88", "license": "MIT"},
+  "mariadb": {"version": "11.4.8", "source": "https://archive.mariadb.org/mariadb-11.4.8/winx64-packages/", "license": "GPL-2.0 and bundled third-party licenses"},
+  "protocol": 1511
+}

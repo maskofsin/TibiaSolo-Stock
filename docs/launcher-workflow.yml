@@ -1,0 +1,26 @@
+# Optional GitHub Actions template: copy to .github/workflows/launcher.yml to enable.
+name: Build launcher and check source
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Check scripts and stock integration contract
+        shell: pwsh
+        run: |
+          ./tests/Check-Source.ps1
+          ./tests/Check-Publish.ps1
+      - name: Build a source and launcher only package
+        shell: pwsh
+        run: ./scripts/Package-Release.ps1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: TibiaSoloStock-launcher-source
+          path: artifacts/TibiaSoloStock-v0.1.0-launcher-source.zip
+          if-no-files-found: error
+          retention-days: 14
